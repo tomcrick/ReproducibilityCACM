@@ -89,7 +89,9 @@
 % e-mail address with \email.
 %
 % 1st. author
-Tom Crick
+Tom Crick \and
+Ben Hall \and
+Samin Ishtiaq
 }
 
 \maketitle
@@ -107,15 +109,75 @@ reproducibility papers.
 
 
 \section{Deadlines}
-15 Nov Digitial Science
-30 Dec Send this to Moshe
+15 Nov Digitial Science \\
+30 Dec Send this to Moshe \\
 30 Jan CAV
 
 \section{Intro}
 
-Notes from WSSSPE2, Recomp2014. 
+
+Samin and I, together with Tom Crick (Cardiff) have written
+some conference papers around the ideas of reproducibility in science
+and specifically in scientific software development. Following our
+first paper, we have been asked to write a contributed article for
+CACM and we were planning on using it as an opportunity to present a
+prototype software platform for compiling and testing software on the
+cloud, whilst it�s being edited by different parties. The general
+idea is that initially a user checks their latest code into visual
+studio online or github. This triggers an event on a cloud server,
+causing the new version to be pulled to the server, external
+dependencies downloaded, the code to be compiled, and several tests
+run on the new binaries. One plan for the prototype is to have the BMA
+compile and be tested using this mechanism, as a proof of concept.
 
 
+Pull together WSSSPE2 and Recomp2014. 
+
+
+After the last submission, I have been thinking about the relationship
+between the two papers. I was glad to have written the second one as I
+felt it was really the second half of the first; one said that
+implementation was hard, whereas the second was focused on how models
+themselves might limit reproducibity efforts. I would like this
+manuscript to bridge both of these topics, and particularly I'd like
+to address the CI system aspects. So, roughly I'd hope that the paper
+would read in 3 sections
+
+ 
+
+1) Implementation problems. Expand to include broader topics in the
+literature (e.g. the machine learning reference I sent around)
+
+ 
+
+2) Models/benchmarks. To be frank, I'd like to be more direct
+addressing performance based benchmarks here than we were in the
+previous paper. Whilst I realize this is hard on the cloud, the more I
+have thought about it I don't think counting operations (as suggested)
+makes much sense- plus Samin and I have an example from a recent paper
+(Samin- our CAV paper) where counting operations on a small benchmark
+set wrongly indicated efficiency.
+
+ 
+
+3) The system itself. I don't know what your thoughts are, but I
+wonder if it would be possible to set up a simple piece of software,
+with a couple of dependencies, just to show what it looked like. We
+just decide on an analysis (I can suggest some simple ones), write a
+small piece of code which does it (with a couple of dependencies), and
+make the code test itself during the build process. One specific
+example of a tool that might be appropriate could be a protein
+structure analysis called the Gaussian Network Model. Its easy to
+implement (and I've done it a few times), and could be linked to the
+PDB for a set of tests/benchmarks.
+
+
+
+
+
+\section{Tom Intro}
+
+\subsection{Bullet Points}
 Not sure about the name "reproducibility papers" because "reproducible
 papers" is a name for, e.g., Sweave'd papers.
 
@@ -128,8 +190,6 @@ paper. Should be sensible and reasonable sized sample (e.g. all ACM
 journals, journals in some other sensible ranking).
 
 (cite to check bib~\cite{crick-et-al_wssspe2})
-
-\section{Bullet Points}
 
 \begin{itemize}
 
@@ -179,7 +239,7 @@ http://www.scfbm.org/content/pdf/1751-0473-7-2.pdf
 
 \end{itemize}
 
-\section{ Review standards }
+\subsection{ Review standards }
 
 Make a particular proposal. 
 
@@ -204,87 +264,12 @@ Likely to improve understanding through selection, presentation, and new insight
 
 Techstack. 
 
-github API 
-
-\section{Ben email}
-Hi both! 
-
-(new email address for my position at univ cam!)
- 
-Thanks Samin for checking back with Moshe. I know you�ve both been
-thinking about the paper (authors, etc) and I wanted to share my
-thoughts on where the text might go.
- 
-After the last submission, I have been thinking about the relationship
-between the two papers. I was glad to have written the second one as I
-felt it was really the second half of the first; one said that
-implementation was hard, whereas the second was focused on how models
-themselves might limit reproducibity efforts. I would like this
-manuscript to bridge both of these topics, and particularly I'd like
-to address the CI system aspects. So, roughly I'd hope that the paper
-would read in 3 sections
-
- 
-
-1) Implementation problems. Expand to include broader topics in the
-literature (e.g. the machine learning reference I sent around)
-
- 
-
-2) Models/benchmarks. To be frank, I'd like to be more direct
-addressing performance based benchmarks here than we were in the
-previous paper. Whilst I realize this is hard on the cloud, the more I
-have thought about it I don't think counting operations (as suggested)
-makes much sense- plus Samin and I have an example from a recent paper
-(Samin- our CAV paper) where counting operations on a small benchmark
-set wrongly indicated efficiency.
-
- 
-
-3) The system itself. I don't know what your thoughts are, but I
-wonder if it would be possible to set up a simple piece of software,
-with a couple of dependencies, just to show what it looked like. We
-just decide on an analysis (I can suggest some simple ones), write a
-small piece of code which does it (with a couple of dependencies), and
-make the code test itself during the build process. One specific
-example of a tool that might be appropriate could be a protein
-structure analysis called the Gaussian Network Model. Its easy to
-implement (and I've done it a few times), and could be linked to the
-PDB for a set of tests/benchmarks.
-
- 
-
-What do you think?
-
- 
+github API, VSO. 
 
 
-\section{Ben email to Scarlet}
-I just wanted to let you know about a proposal that some of us have
-been focused on relating to open science. It isn�t strictly related
-to the BMA but I thought it would be of general interest to you and
-outreach. Samin and I, together with Tom Crick (Cardiff) have written
-some conference papers around the ideas of reproducibility in science
-and specifically in scientific software development. Following our
-first paper, we have been asked to write a contributed article for
-CACM and we were planning on using it as an opportunity to present a
-prototype software platform for compiling and testing software on the
-cloud, whilst it�s being edited by different parties. The general
-idea is that initially a user checks their latest code into visual
-studio online or github. This triggers an event on a cloud server,
-causing the new version to be pulled to the server, external
-dependencies downloaded, the code to be compiled, and several tests
-run on the new binaries. One plan for the prototype is to have the BMA
-compile and be tested using this mechanism, as a proof of concept.
+Definition: what is the thing we are building. Can be written without actually building it. 
 
-
-
-Samin was going to chat to the VSO folk to see if they have anything
-already planned along these lines, and recently Kenji has also become
-involved. However I wanted to let you know what we are doing in case
-this was something which was relevant to any existing efforts, or if
-it is more generally of interest to you/outreach. What are your
-thoughts?
+Description: What we built using github. 
 
 
 \section{What's next?}
